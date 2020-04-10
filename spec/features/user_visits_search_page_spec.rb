@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe "user can visit the search page" do
   scenario "and see the closest fuel station" do
+    @location = "1331 17th St LL100, Denver, CO 80202"
+    @nrel_service =  NrelService.new(@location)
+    @station = Station.new(@nrel_service.get_station)
+    @direction_service = DirectionService.new(@location, @station.address)
+    Direction.new(@direction_service.get_directions)
+    FuelFacade.new(@location)
 
     visit '/'
 
@@ -14,7 +20,8 @@ describe "user can visit the search page" do
     expect(page).to have_content('Fuel-Type: ELEC')
     expect(page).to have_content('Distance: 0.1 mi')
     expect(page).to have_content('Travel-Time: 1 min')
-    expect(page).to have_content('Turn left onto Lawrence St Destination will be on the left')
+    expect(page).to have_content('Turn left onto Lawrence St')
+    expect(page).to have_content('Destination will be on the left')
   end
 end
 
