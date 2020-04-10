@@ -1,0 +1,6 @@
+<h3>Name: <%= @fuel_facade.station.name %></h3>
+<p>Address: <%= @fuel_facade.station.address %></p>
+<p>Fuel-Type: <%= @fuel_facade.station.fuel_type %></p>
+<p>Distance: <%= @fuel_facade.directions.distance %></p>
+<p>Travel-Time: <%= @fuel_facade.directions.travel_time %></p>
+<p><%= sanitize(@fuel_facade.directions.directions) %></p>
