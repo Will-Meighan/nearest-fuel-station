@@ -23,6 +23,10 @@ describe "user can visit the search page" do
     expect(page).to have_content('Turn left onto Lawrence St')
     expect(page).to have_content('Destination will be on the left')
     expect(page).to have_content('Access Times: MO: Not Specified; TU: Not Specified; WE: Not Specified; TH: Not Specified; FR: Not Specified; SA: Not Specified; SU: Not Specified')
+
+    expect(page).to_not have_content('Name: 16M BUILDING')
+    expect(page).to_not have_content('Address: 1550 Market St, Denver, CO 80202')
+
   end
 end
 
