@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe "user can visit the search page" do
   scenario "and see the closest fuel station" do
-    FuelFacade.create(
 
     visit '/'
 
